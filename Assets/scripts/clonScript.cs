@@ -5,11 +5,13 @@ using UnityEngine;
 public class clonScript : MonoBehaviour
 {
     public GameObject apple;
-    public int timer=0;
+    public float timer=0;
     private float spawn;
     // Start is called before the first frame update
     void Start()
     {
+        
+
         Instantiate(apple, new Vector2(spawn, transform.position.y), apple.transform.rotation);
     }
 
@@ -17,17 +19,24 @@ public class clonScript : MonoBehaviour
     void Update()
     {
         spawn = Random.Range(-9, 9);
-        increseTime();
+        if (timer < 3)
+        {
+            timer = timer + Time.deltaTime;
+        }
+        else
+        {
+           
+            Clone();
+            timer = 0;
+        }
        
         
     }
-    public void increseTime()
+    public void Clone()
     {
-        if (timer > 72)
-        {
+       
             Instantiate(apple, new Vector2(spawn, transform.position.y), apple.transform.rotation);
             timer = 0;
-        }
-        timer++;
+        
     }
 }
