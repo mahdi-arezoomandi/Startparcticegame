@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class logicscript : MonoBehaviour
 {
     public int Score=0;
+    public float timer = 0;
+    public GameObject task;
     public Text playerScore;
     // Start is called before the first frame update
     [ContextMenu("increase score")]
@@ -15,5 +17,20 @@ public class logicscript : MonoBehaviour
        
         Score = Score + s;
         playerScore.text = Score.ToString();
+    }
+    public void minosscore(int s)
+    {
+
+        Score = Score - s;
+        playerScore.text = Score.ToString();
+    }
+    
+    private void Update()
+    {
+        if (timer < 3)
+            timer = timer + Time.deltaTime;
+        else
+            task.SetActive(false);
+
     }
 }

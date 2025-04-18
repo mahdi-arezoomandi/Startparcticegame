@@ -6,7 +6,9 @@ public class clonScript : MonoBehaviour
 {
     public GameObject apple;
     public float timer=0;
+    public float rateclone = 3;
     private float spawn;
+    public float realTimer = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +20,16 @@ public class clonScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (realTimer < 60)
+            realTimer = realTimer + Time.deltaTime;
+        
+        if (realTimer > 20)
+            rateclone = 2;
+
+
         spawn = Random.Range(-9, 9);
-        if (timer < 3)
+
+        if (timer < rateclone)
         {
             timer = timer + Time.deltaTime;
         }
@@ -29,6 +39,7 @@ public class clonScript : MonoBehaviour
             Clone();
             timer = 0;
         }
+
        
        
         

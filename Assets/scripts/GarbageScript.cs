@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Applescript : MonoBehaviour
+public class GarbageScript : MonoBehaviour
 {
     public logicscript logic;
-    public GameObject apple;
+    public GameObject Garbage;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,15 +16,14 @@ public class Applescript : MonoBehaviour
     void Update()
     {
         if (transform.position.y < -7)
-            GameObject.Destroy(apple);
+            GameObject.Destroy(Garbage);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            GameObject.Destroy(apple);
-            logic.addscore(1);
+            GameObject.Destroy(Garbage);
+            logic.minosscore(1);
         }
-
     }
 }
