@@ -30,6 +30,7 @@ public class clonScript : MonoBehaviour
             timer = 0;
         }
        
+       
         
     }
     public void Clone()
