@@ -9,6 +9,7 @@ public class logicscript : MonoBehaviour
     public int Score=0;
     public float timer = 0;
     public GameObject task;
+    public GameObject Win;
     public Text playerScore;
     // Start is called before the first frame update
     [ContextMenu("increase score")]
@@ -31,6 +32,8 @@ public class logicscript : MonoBehaviour
             timer = timer + Time.deltaTime;
         else
             task.SetActive(false);
+        if (Score == 60)
+            Win.SetActive(true);
 
     }
 }
