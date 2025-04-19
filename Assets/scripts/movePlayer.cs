@@ -7,18 +7,22 @@ public class movePlayer : MonoBehaviour
     public Rigidbody2D Apple;
     public float speed;
     private float move;
+    
+    private logicscript logic;
     // Start is called before the first frame update
     void Start()
     {
-        
+        logic = GameObject.FindGameObjectWithTag("object").GetComponent<logicscript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        move = Input.GetAxis("Horizontal");
-        Move(move);
-        
+        if (logic.Score < 60)
+        {
+            move = Input.GetAxis("Horizontal");
+            Move(move);
+        }
     }
     public void Move(float s)
     {

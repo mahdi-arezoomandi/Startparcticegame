@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class logicscript : MonoBehaviour
@@ -25,7 +26,11 @@ public class logicscript : MonoBehaviour
         Score = Score - s;
         playerScore.text = Score.ToString();
     }
-    
+    public void restart()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+
     private void Update()
     {
         if (timer < 3)
