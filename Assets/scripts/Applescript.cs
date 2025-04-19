@@ -14,7 +14,7 @@ public class Applescript : MonoBehaviour
         logic = GameObject.FindGameObjectWithTag("object").GetComponent<logicscript>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (transform.position.y < -7)
