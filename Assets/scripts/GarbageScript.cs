@@ -6,9 +6,11 @@ public class GarbageScript : MonoBehaviour
 {
     public logicscript logic;
     public GameObject Garbage;
+    private soundManager Audiomanager;
     // Start is called before the first frame update
     void Start()
     {
+        Audiomanager = GameObject.FindGameObjectWithTag("sound").GetComponent<soundManager>();
         logic = GameObject.FindGameObjectWithTag("object").GetComponent<logicscript>();
     }
 
@@ -22,6 +24,7 @@ public class GarbageScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Audiomanager.Playsfx(Audiomanager.hitBottle);
             GameObject.Destroy(Garbage);
             logic.minosscore(1);
         }

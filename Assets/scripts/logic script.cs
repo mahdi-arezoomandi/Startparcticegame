@@ -12,6 +12,11 @@ public class logicscript : MonoBehaviour
     public GameObject task;
     public GameObject Win;
     public Text playerScore;
+    private soundManager Audiomanager;
+    private void Start()
+    {
+        Audiomanager = GameObject.FindGameObjectWithTag("sound").GetComponent<soundManager>();
+    }
     // Start is called before the first frame update
     [ContextMenu("increase score")]
     public void addscore(int s)
@@ -38,7 +43,10 @@ public class logicscript : MonoBehaviour
         else
             task.SetActive(false);
         if (Score == 60)
+        {
             Win.SetActive(true);
-
+            Audiomanager.Playsfx(Audiomanager.win);
+            Audiomanager.puse();
+        }
     }
 }

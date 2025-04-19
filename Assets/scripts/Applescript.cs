@@ -6,9 +6,11 @@ public class Applescript : MonoBehaviour
 {
     public logicscript logic;
     public GameObject apple;
+    private soundManager Audiomanager;
     // Start is called before the first frame update
     void Start()
     {
+        Audiomanager = GameObject.FindGameObjectWithTag("sound").GetComponent<soundManager>();
         logic = GameObject.FindGameObjectWithTag("object").GetComponent<logicscript>();
     }
 
@@ -22,6 +24,7 @@ public class Applescript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Audiomanager.Playsfx(Audiomanager.hitAplle);
             GameObject.Destroy(apple);
             logic.addscore(1);
         }

@@ -10,7 +10,7 @@ public class soundManager : MonoBehaviour
     [Header("-----AudioClip-----")]
     public AudioClip hitAplle;
     public AudioClip hitBottle;
-    public AudioClip Win;
+    public AudioClip win;
     public AudioClip Background;
     // Start is called before the first frame update
     void Start()
@@ -19,9 +19,12 @@ public class soundManager : MonoBehaviour
         Musicsource.Play();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Playsfx(AudioClip clip)
     {
-        
+        Sfxsource.PlayOneShot(clip);
+    }
+    public void puse()
+    {
+        Musicsource.Pause();
     }
 }
